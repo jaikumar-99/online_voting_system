@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<script>
+function validate()
+{ 
+   if( document.myForm.fname.value == "" )
+   {
+     alert( "Please provide your FirstName!" );
+     document.myForm.fname.focus() ;
+     return false;
+   }
+   if( document.myForm.lname.value == "" )
+   {
+     alert( "Please provide your Last Name!" );
+     document.myForm.lname.focus() ;
+     return false;
+   }
+    if( document.myForm.age.value == "" ||
+           isNaN( document.myForm.age.value) ||
+           document.myForm.age.value < 30 )
+   {
+     alert( "Please provide age greater than 30 to be eligible to be a candidate" );
+     document.myForm.age.focus() ;
+     return false;
+   }
+   if( document.myForm.gender== "" )
+   {
+     alert( "Please select any one of your choice" );
+     document.myForm.gender.focus() ;
+     return false;
+   }
+   if( document.myForm.partyname.value == "")
+   {
+     alert( "Please provide a partyname " );
+     document.myForm.partyname.focus() ;
+     return false;
+   }
+  if( document.myForm.descr.value == "" )
+   {
+     alert( "Please provide your profile clearly!" );
+     document.myForm.descr.focus() ;
+     return false;
+   }
+   return( true );
+}
+</script>
+<body>
+<form name="myForm"action="candidate_insert.php" method="post" onclick="return validate()">
+<center>
+<head><h2>CANDIDATE REGISTRATION FORM</h2></head>
+<br><br>
+<table border = "10">
+<tr>
+<td><label>FirstName:</label></td>
+<td><input  name="fname" type="text" value="" ></td>
+</tr>
+<tr>
+<td><label>Lastname:</label></td>
+<td><input  name="lname" type="text" value="" ></td>
+</tr>
+<tr>
+<td><label>age:</label></td>
+<td><input  name="age" type="text" value="" ></td>
+<tr>
+<td><label>gender:</label></td>
+<td><input  name="gender" type="radio" value="M" >Male
+<input name="gender" type="radio" value="F">Female</td>
+<tr>
+<td><label>Party name:</label></td>
+<td><input  name="partyname" type="text" value="" ></td>
+</tr>
+<tr>
+    <td><label>Description:</label></td>
+    <td><input  type="text" name="descr" value=""></td>
+</tr>
+</table>
+<h1><input class="submit" name="submit" type="submit" value="Insert"><h1>
+</center>
+</form>
+</body>
+</html>
